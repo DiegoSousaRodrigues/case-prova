@@ -45,6 +45,9 @@ public class Logradouro {
     @OneToMany(mappedBy = "logradouro")
     private List<LogradouroProprietario> listLogradouroProprietario;
 
+    @OneToMany(mappedBy = "logradouro")
+    private List<CondominioLogradouro> listCondominioLogradouro;
+
     public Integer getId() {
         return id;
     }
@@ -99,5 +102,13 @@ public class Logradouro {
 
     public void setListLogradouroProprietario(List<LogradouroProprietario> listLogradouroProprietario) {
         this.listLogradouroProprietario = listLogradouroProprietario;
+    }
+
+    public List<CondominioLogradouro> getListCondominioLogradouro() {
+        return listCondominioLogradouro;
+    }
+
+    public void setListCondominioLogradouro(List<CondominioLogradouro> listCondominioLogradouro) {
+        this.listCondominioLogradouro = listCondominioLogradouro;
     }
 }

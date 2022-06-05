@@ -170,4 +170,13 @@ public class Proprietario {
     public void setListLogradouroProprietario(List<LogradouroProprietario> listLogradouroProprietario) {
         this.listLogradouroProprietario = listLogradouroProprietario;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }
