@@ -16,14 +16,14 @@ public class TipoLogradouro {
     }
 
     @Id
-    @Column(name = "id_tp_logradouro")
+    @Column(name = "id_tp_logradouro", length = 10)
     @GeneratedValue(generator = "tipo_logradouro", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "nm_tipo_logradouro")
+    @Column(name = "nm_tipo_logradouro", length = 50, nullable = false)
     private String type;
 
-    @OneToMany(mappedBy = "tipoLogradouro")
+    @OneToMany(mappedBy = "tipoLogradouro", cascade = CascadeType.ALL)
     private List<Logradouro> listLogradouro;
 
     public Integer getId() {

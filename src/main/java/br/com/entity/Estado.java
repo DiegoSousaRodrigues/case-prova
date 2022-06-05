@@ -5,8 +5,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_ESTADO")
-@SequenceGenerator(name="estado", sequenceName = "SQ_TB_ESTADO", allocationSize = 1)
-public class Estado{
+@SequenceGenerator(name = "estado", sequenceName = "SQ_TB_ESTADO", allocationSize = 1)
+public class Estado {
 
     public Estado() {
     }
@@ -17,14 +17,14 @@ public class Estado{
     }
 
     @Id
-    @Column(name = "id_estado")
+    @Column(name = "id_estado", length = 10)
     @GeneratedValue(generator = "estado", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "nm_estado", nullable = false, length = 80)
+    @Column(name = "nm_estado", length = 80, nullable = false)
     private String name;
 
-    @Column(name = "sg_estado", nullable = false, length = 2)
+    @Column(name = "sg_estado", length = 2, nullable = false)
     private String uf;
 
     @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)

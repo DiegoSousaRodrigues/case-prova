@@ -2,33 +2,48 @@ package br.com.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_LOGRADOURO")
 @SequenceGenerator(name = "logradouro", sequenceName = "SQ_TB_LOGRADOURO", allocationSize = 1)
 public class Logradouro {
 
+    public Logradouro() {
+    }
+
+    public Logradouro(TipoLogradouro tipoLogradouro, Bairro bairro, Integer codigoTipoLogradouro, String description, Integer zipCode) {
+        this.tipoLogradouro = tipoLogradouro;
+        this.bairro = bairro;
+        this.codigoTipoLogradouro = codigoTipoLogradouro;
+        this.description = description;
+        this.zipCode = zipCode;
+    }
+
     @Id
-    @Column(name = "id_Logradouro")
+    @Column(name = "id_Logradouro", length = 10)
     @GeneratedValue(generator = "logradouro", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_tp_logradouro")
+    @JoinColumn(name = "id_tp_logradouro", nullable = false)
     private TipoLogradouro tipoLogradouro;
 
     @ManyToOne
-    @JoinColumn(name = "id_bairro")
+    @JoinColumn(name = "id_bairro", nullable = false)
     private Bairro bairro;
 
-    @Column(name = "cd_tp_logradouro", length = 8)
+    @Column(name = "cd_tp_logradouro", length = 8, nullable = false)
     private Integer codigoTipoLogradouro;
 
-    @Column(name = "ds_logradouro")
+    @Column(name = "ds_logradouro", length = 190, nullable = false)
     private String description;
 
-    @Column(name = "nr_cep")
+    @Column(name = "nr_cep", length = 8, nullable = false)
     private Integer zipCode;
+
+    @OneToMany(mappedBy = "logradouro")
+    private List<LogradouroProprietario> listLogradouroProprietario;
 
     public Integer getId() {
         return id;
@@ -76,5 +91,13 @@ public class Logradouro {
 
     public void setZipCode(Integer zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<LogradouroProprietario> getListLogradouroProprietario() {
+        return listLogradouroProprietario;
+    }
+
+    public void setListLogradouroProprietario(List<LogradouroProprietario> listLogradouroProprietario) {
+        this.listLogradouroProprietario = listLogradouroProprietario;
     }
 }
