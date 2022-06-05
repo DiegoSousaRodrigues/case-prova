@@ -1,6 +1,5 @@
 package br.com.entity;
 
-import jdk.jpackage.internal.Log;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,7 +29,7 @@ public class Bairro {
     @Column(name = "nm_bairro", length = 100)
     private String name;
 
-    @OneToMany(mappedBy = "Logradouro")
+    @OneToMany(mappedBy = "bairro")
     private List<Logradouro> listLogradouros;
 
     public Integer getId() {

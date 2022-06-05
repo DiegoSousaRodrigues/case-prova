@@ -27,7 +27,7 @@ public class Estado{
     @Column(name = "sg_estado", nullable = false, length = 2)
     private String uf;
 
-    @OneToMany(mappedBy = "Cidade", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
     private List<Cidade> listCidade;
 
     public Integer getId() {

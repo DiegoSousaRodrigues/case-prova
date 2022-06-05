@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_TIPO_LOGRADOURO")
-@SequenceGenerator(name="tipo_logradouro", sequenceName = "SQ_TB_LOGRADOURO", allocationSize = 1)
+@SequenceGenerator(name="tipo_logradouro", sequenceName = "SQ_TB_TIPO_LOGRADOURO", allocationSize = 1)
 public class TipoLogradouro {
 
     public TipoLogradouro() {
@@ -23,7 +23,7 @@ public class TipoLogradouro {
     @Column(name = "nm_tipo_logradouro")
     private String type;
 
-    @OneToMany(mappedBy = "Logradouro")
+    @OneToMany(mappedBy = "tipoLogradouro")
     private List<Logradouro> listLogradouro;
 
     public Integer getId() {

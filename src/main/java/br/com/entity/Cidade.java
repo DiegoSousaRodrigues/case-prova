@@ -19,7 +19,7 @@ public class Cidade {
 
     @Id
     @Column(name = "id_tp_logradouro")
-    @GeneratedValue(generator = "estado", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "cidade", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @ManyToOne
@@ -29,7 +29,7 @@ public class Cidade {
     @Column(name = "nm_cidade", length = 120)
     private String name;
 
-    @OneToMany(mappedBy = "Bairro")
+    @OneToMany(mappedBy = "cidade")
     private List<Bairro> listBairro;
 
     public Integer getId() {
