@@ -1,10 +1,11 @@
 package br.com.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_TIPO_LOGRADOURO")
-@SequenceGenerator(name="logradouro", sequenceName = "SQ_TB_LOGRADOURO", allocationSize = 1)
+@SequenceGenerator(name="tipo_logradouro", sequenceName = "SQ_TB_LOGRADOURO", allocationSize = 1)
 public class TipoLogradouro {
 
     public TipoLogradouro() {
@@ -16,11 +17,14 @@ public class TipoLogradouro {
 
     @Id
     @Column(name = "id_tp_logradouro")
-    @GeneratedValue(generator = "estado", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "tipo_logradouro", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column(name = "nm_tipo_logradouro")
     private String type;
+
+    @OneToMany(mappedBy = "Logradouro")
+    private List<Logradouro> listLogradouro;
 
     public Integer getId() {
         return id;
@@ -36,5 +40,13 @@ public class TipoLogradouro {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Logradouro> getListLogradouro() {
+        return listLogradouro;
+    }
+
+    public void setListLogradouro(List<Logradouro> listLogradouro) {
+        this.listLogradouro = listLogradouro;
     }
 }

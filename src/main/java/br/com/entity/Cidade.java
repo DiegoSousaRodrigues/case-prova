@@ -1,6 +1,7 @@
 package br.com.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_CIDADE")
@@ -9,6 +10,11 @@ public class Cidade {
 
     public Cidade() {
 
+    }
+
+    public Cidade(Estado estado, String name) {
+        this.estado = estado;
+        this.name = name;
     }
 
     @Id
@@ -20,4 +26,41 @@ public class Cidade {
     @JoinColumn(name = "id_estado")
     private Estado estado;
 
+    @Column(name = "nm_cidade", length = 120)
+    private String name;
+
+    @OneToMany(mappedBy = "Bairro")
+    private List<Bairro> listBairro;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Bairro> getListBairro() {
+        return listBairro;
+    }
+
+    public void setListBairro(List<Bairro> listBairro) {
+        this.listBairro = listBairro;
+    }
 }

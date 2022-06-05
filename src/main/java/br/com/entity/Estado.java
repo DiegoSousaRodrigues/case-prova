@@ -54,4 +54,11 @@ public class Estado{
         this.uf = uf;
     }
 
+    public List<Cidade> getListCidade() {
+        return listCidade;
+    }
+
+    public void setListCidade(List<Cidade> listCidade) {
+        this.listCidade = listCidade;
+    }
 }
