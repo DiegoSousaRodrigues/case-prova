@@ -24,7 +24,7 @@ public class Proprietario {
     }
 
     @Id
-    @Column(name = "id_proprietario")
+    @Column(name = "id_proprietario", length = 10)
     @GeneratedValue(generator = "proprietario", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
@@ -49,11 +49,23 @@ public class Proprietario {
     @Column(name = "st_genero_biologico", length = 1)
     private String gender;
 
+    @Column(name = "st_proprietario", length = 1)
+    private String status;
+
     @Column(name = "dt_cadastro", nullable = false)
     private LocalDate dateCreated;
 
     @OneToMany(mappedBy = "proprietario")
     private List<Email> listEmail;
+
+    @OneToMany(mappedBy = "proprietario")
+    private List<Telefone> listTelefone;
+
+    @OneToMany(mappedBy = "proprietario")
+    private List<Imagem> listImagem;
+
+    @OneToMany(mappedBy = "proprietario")
+    private List<LogradouroProprietario> listLogradouroProprietario;
 
     public Integer getId() {
         return id;
@@ -125,5 +137,37 @@ public class Proprietario {
 
     public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public List<Email> getListEmail() {
+        return listEmail;
+    }
+
+    public void setListEmail(List<Email> listEmail) {
+        this.listEmail = listEmail;
+    }
+
+    public List<Telefone> getListTelefone() {
+        return listTelefone;
+    }
+
+    public void setListTelefone(List<Telefone> listTelefone) {
+        this.listTelefone = listTelefone;
+    }
+
+    public List<Imagem> getListImagem() {
+        return listImagem;
+    }
+
+    public void setListImagem(List<Imagem> listImagem) {
+        this.listImagem = listImagem;
+    }
+
+    public List<LogradouroProprietario> getListLogradouroProprietario() {
+        return listLogradouroProprietario;
+    }
+
+    public void setListLogradouroProprietario(List<LogradouroProprietario> listLogradouroProprietario) {
+        this.listLogradouroProprietario = listLogradouroProprietario;
     }
 }

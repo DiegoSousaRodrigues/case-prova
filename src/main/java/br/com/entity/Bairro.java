@@ -18,18 +18,18 @@ public class Bairro {
     }
 
     @Id
-    @Column(name = "id_bairro")
+    @Column(name = "id_bairro", length = 10)
     @GeneratedValue(generator = "bairro", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_cidade")
+    @JoinColumn(name = "id_cidade", nullable = false)
     private Cidade cidade;
 
-    @Column(name = "nm_bairro", length = 100)
+    @Column(name = "nm_bairro", length = 100, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "bairro")
+    @OneToMany(mappedBy = "bairro", cascade = CascadeType.ALL)
     private List<Logradouro> listLogradouros;
 
     public Integer getId() {
