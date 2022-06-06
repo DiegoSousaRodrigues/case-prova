@@ -11,13 +11,13 @@ public class LogradouroProprietario {
     public LogradouroProprietario() {
     }
 
-    public LogradouroProprietario(Logradouro logradouro, Proprietario proprietario, LocalDate dateCreated, LocalDate dateEnded, Integer numero, String description, String referencePoint) {
+    public LogradouroProprietario(Logradouro logradouro, Proprietario proprietario, LocalDate dateCreated, LocalDate dateEnded, Integer numero, String complement, String referencePoint) {
         this.logradouro = logradouro;
         this.proprietario = proprietario;
         this.dateCreated = dateCreated;
         this.dateEnded = dateEnded;
         this.numero = numero;
-        this.description = description;
+        this.complement = complement;
         this.referencePoint = referencePoint;
     }
 
@@ -44,7 +44,7 @@ public class LogradouroProprietario {
     private Integer numero;
 
     @Column(name = "ds_complemento", length = 50)
-    private String description;
+    private String complement;
 
     @Column(name = "ds_ponto_referencia", length = 500)
     private String referencePoint;
@@ -98,11 +98,11 @@ public class LogradouroProprietario {
     }
 
     public String getDescription() {
-        return description;
+        return complement;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String complement) {
+        this.complement = complement;
     }
 
     public String getReferencePoint() {
