@@ -2,6 +2,7 @@ package br.com.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "T_GCD_FUNCIONARIO_PORTARIA")
@@ -43,4 +44,70 @@ public class FuncionarioPortaria {
     @Column(name = "dt_cadastro", nullable = false)
     private LocalDate dateCreted;
 
+    @OneToMany(mappedBy = "funcionarioPortaria")
+    private List<MovimentacaoPortaria> listMovimentacaoPortarias;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getBirth() {
+        return birth;
+    }
+
+    public void setBirth(LocalDate birth) {
+        this.birth = birth;
+    }
+
+    public Integer getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Integer cpf) {
+        this.cpf = cpf;
+    }
+
+    public Integer getRg() {
+        return rg;
+    }
+
+    public void setRg(Integer rg) {
+        this.rg = rg;
+    }
+
+    public Integer getDigitoRg() {
+        return digitoRg;
+    }
+
+    public void setDigitoRg(Integer digitoRg) {
+        this.digitoRg = digitoRg;
+    }
+
+    public LocalDate getDateCreted() {
+        return dateCreted;
+    }
+
+    public void setDateCreted(LocalDate dateCreted) {
+        this.dateCreted = dateCreted;
+    }
+
+    public List<MovimentacaoPortaria> getListMovimentacaoPortarias() {
+        return listMovimentacaoPortarias;
+    }
+
+    public void setListMovimentacaoPortarias(List<MovimentacaoPortaria> listMovimentacaoPortarias) {
+        this.listMovimentacaoPortarias = listMovimentacaoPortarias;
+    }
 }
