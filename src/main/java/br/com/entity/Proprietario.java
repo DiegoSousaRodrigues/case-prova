@@ -67,6 +67,9 @@ public class Proprietario {
     @OneToMany(mappedBy = "proprietario")
     private List<LogradouroProprietario> listLogradouroProprietario;
 
+    @OneToMany(mappedBy = "proprietario")
+    private List<LoteProprietario> listLoteProprietario;
+
     public Integer getId() {
         return id;
     }
@@ -179,4 +182,11 @@ public class Proprietario {
         this.status = status;
     }
 
+    public List<LoteProprietario> getListLoteProprietario() {
+        return listLoteProprietario;
+    }
+
+    public void setListLoteProprietario(List<LoteProprietario> listLoteProprietario) {
+        this.listLoteProprietario = listLoteProprietario;
+    }
 }

@@ -39,6 +39,10 @@ public class Condominio {
     @OneToMany(mappedBy = "condominio")
     private List<CondominioLogradouro> listCondominioLogradouro;
 
+    @OneToMany(mappedBy = "condominio")
+    private List<Lote> listLote;
 
+    @OneToMany(mappedBy = "condominio")
+    private List<LoteProprietario> listLoteProprietario;
 
 }
