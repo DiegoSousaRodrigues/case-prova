@@ -29,7 +29,7 @@ public class Cidade {
     @Column(name = "nm_cidade", length = 120)
     private String name;
 
-    @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL) //bidirecional
     private List<Bairro> listBairro;
 
     public Integer getId() {

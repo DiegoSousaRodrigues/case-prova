@@ -23,7 +23,7 @@ public class TipoLogradouro {
     @Column(name = "nm_tipo_logradouro", length = 50, nullable = false)
     private String type;
 
-    @OneToMany(mappedBy = "tipoLogradouro", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tipoLogradouro", cascade = CascadeType.ALL) //bidirecional
     private List<Logradouro> listLogradouro;
 
     public Integer getId() {
