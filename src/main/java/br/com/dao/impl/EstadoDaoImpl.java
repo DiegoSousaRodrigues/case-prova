@@ -11,7 +11,7 @@ public class EstadoDaoImpl extends GenericDaoImpl<Estado, Integer> implements Es
     }
 
     public List<Estado> buscarPorParteNome(String nome) {
-        return em.createQuery("from Estado e where lower(e.name) like lower(:n) order by e.name", Estado.class)
+        return em.createQuery("from Estado e where e.name like :n", Estado.class)
                 .setParameter("n", "%" + nome + "%")
                 .getResultList();
     }
