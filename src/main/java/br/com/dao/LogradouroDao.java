@@ -1,5 +1,7 @@
 package br.com.dao;
 
-public interface LogradouroDao extends GenericDao<LogradouroDao, Integer> {
+import br.com.entity.Logradouro;
+
+public interface LogradouroDao extends GenericDao<Logradouro, Integer> {
 
 }

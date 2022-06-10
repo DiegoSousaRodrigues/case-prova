@@ -11,8 +11,8 @@ public class TipoLogradouro {
     public TipoLogradouro() {
     }
 
-    public TipoLogradouro(Integer id) {
-        this.id = id;
+    public TipoLogradouro(String type) {
+        this.type = type;
     }
 
     @Id

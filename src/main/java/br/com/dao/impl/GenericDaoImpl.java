@@ -9,7 +9,7 @@ import java.lang.reflect.ParameterizedType;
 
 public abstract class GenericDaoImpl<T, K> implements GenericDao<T, K> {
 
-    private EntityManager em;
+    protected EntityManager em;
 
     private Class<T> clazz;
 
